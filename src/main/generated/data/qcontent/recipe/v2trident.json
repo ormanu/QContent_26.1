@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "a": "minecraft:amethyst_shard",
+    "e": "minecraft:echo_shard",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    " e ",
+    " a ",
+    " s "
+  ],
+  "result": {
+    "id": "qcontent:v2trident"
+  }
+}

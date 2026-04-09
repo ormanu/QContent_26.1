@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "ormanu.qcontent.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "CrossbowItemMixin",
+    "LivingEntityAirAccelerationMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "HumanoidModelMixin"
+  ]
+}

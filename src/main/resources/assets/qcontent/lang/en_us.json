@@ -1,0 +1,11 @@
+{
+  "item.qcontent.longsword": "Echo Longsword",
+  "item.qcontent.v2trident": "V2 Riptide",
+
+  "qcontent.midnightconfig.title": "QContent Config",
+  "qcontent.midnightconfig.fireworkRecoilPower" : "Firework Recoil Power",
+  "qcontent.midnightconfig.fireworkUpwardKick" : "Firework Upward Kick",
+  "qcontent.midnightconfig.airBoostDuration" : "Air Boost Duration",
+  "qcontent.midnightconfig.airAcceleration" : "Air Acceleration",
+  "qcontent.midnightconfig.maxAirSpeed" : "Max Air Speed"
+}

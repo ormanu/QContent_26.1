@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "qcontent",
+	"version": "${version}",
+	"name": "QContent",
+	"description": "Adding things because why not!",
+	"authors": [
+		"ormanu"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "ARR",
+	"icon": "assets/qcontent/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ormanu.qcontent.QContent"
+		],
+		"modmenu": [
+			"ormanu.qcontent.config.QModMenuCompat"
+		],
+		"fabric-datagen": [
+			"ormanu.qcontent.QContentDataGenerator"
+		]
+	},
+	"mixins": [
+		"qcontent.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.5",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

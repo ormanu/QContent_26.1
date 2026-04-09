@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "c": "minecraft:sculk_catalyst",
+    "e": "minecraft:echo_shard",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "  e",
+    " c ",
+    "s  "
+  ],
+  "result": {
+    "id": "qcontent:longsword"
+  }
+}
