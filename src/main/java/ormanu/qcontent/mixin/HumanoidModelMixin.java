@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -14,7 +15,6 @@ import ormanu.qcontent.items.ModItems;
 
 @Mixin(HumanoidModel.class)
 public class HumanoidModelMixin<T extends HumanoidRenderState> {
-    @Shadow @Final public ModelPart head;
     @Shadow @Final public ModelPart rightArm;
     @Shadow @Final public ModelPart leftArm;
 
@@ -47,6 +47,7 @@ public class HumanoidModelMixin<T extends HumanoidRenderState> {
         qcontent$applyIdlePose(rightHanded, state.ageInTicks);
     }
 
+    @Unique
     private void qcontent$applyIdlePose(boolean rightHanded, float ageInTicks) {
         float sway = (float) Math.sin(ageInTicks * 0.08F) * 0.03F;
         float sway2 = (float) Math.sin(ageInTicks * 0.05F) * 0.02F;
@@ -73,6 +74,7 @@ public class HumanoidModelMixin<T extends HumanoidRenderState> {
         }
     }
 
+    @Unique
     private void qcontent$applySupportArm(boolean lockRightArm) {
         if (lockRightArm) {
             this.rightArm.xRot = -1.22F;
@@ -85,6 +87,7 @@ public class HumanoidModelMixin<T extends HumanoidRenderState> {
         }
     }
 
+    @Unique
     private void qcontent$applyParryPose(boolean rightHanded) {
         if (rightHanded) {
             this.rightArm.xRot = -0.85F;
