@@ -18,6 +18,9 @@
 		"main": [
 			"ormanu.qcontent.QContent"
 		],
+		"client": [
+			"ormanu.qcontent.client.QContentClient"
+		],
 		"modmenu": [
 			"ormanu.qcontent.config.QModMenuCompat"
 		],
