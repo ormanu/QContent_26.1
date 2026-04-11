@@ -35,6 +35,8 @@ public class ModItems {
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT)
                 .register((creativeTab) -> creativeTab.accept(ModItems.LongSword));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT)
+                .register((creativeTab) -> creativeTab.accept(ModItems.V2Trident));
     }
 
 }
