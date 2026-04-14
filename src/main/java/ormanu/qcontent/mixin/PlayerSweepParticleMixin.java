@@ -37,8 +37,17 @@ public class PlayerSweepParticleMixin {
 
             // Only for your longsword
             if (held.is(ModItems.LongSword)) {
-                // spawn your sculk sweep instead
                 level.sendParticles(QContent.SCULK_SWEEP, x, y, z, count, dx, dy, dz, speed);
+                return 0; // don't call vanilla
+            }
+
+            if (held.is(ModItems.Scythe)) {
+                level.sendParticles(QContent.SCYTHE_SWEEP, x, y, z, count, dx, dy, dz, speed);
+                return 0; // don't call vanilla
+            }
+
+            if (held.is(ModItems.RefinedSword)) {
+                level.sendParticles(QContent.SCYTHE_SWEEP, x, y, z, count, dx, dy, dz, speed);
                 return 0; // don't call vanilla
             }
         }

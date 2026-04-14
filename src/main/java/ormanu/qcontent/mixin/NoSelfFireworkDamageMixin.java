@@ -14,9 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LivingEntity.class) // Target LivingEntity instead of Player
 public class NoSelfFireworkDamageMixin {
 
-    // Try this newer signature first
     @Inject(method = "hurtServer", at = @At("HEAD"), cancellable = true)
-    private void qcontent$noSelfFireworkDamage(ServerLevel level, DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void qcontent$noSelfFireworkDamage(ServerLevel level, DamageSource source, float damage, CallbackInfoReturnable<Boolean> cir) {
 
         // Check if the entity taking damage is a player
         if (!((Object) this instanceof Player player)) return;
