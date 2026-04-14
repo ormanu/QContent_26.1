@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": "minecraft:diamond",
+    "g": "minecraft:gold_ingot",
+    "n": "minecraft:netherite_scrap"
+  },
+  "pattern": [
+    " g ",
+    " dn"
+  ],
+  "result": {
+    "id": "qcontent:refined_ingot"
+  }
+}

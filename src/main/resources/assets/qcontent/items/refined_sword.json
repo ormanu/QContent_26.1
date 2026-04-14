@@ -7,21 +7,21 @@
         "when": "gui",
         "model": {
           "type": "minecraft:model",
-          "model": "qcontent:item/longsword_gui"
+          "model": "qcontent:item/refined_sword_gui"
         }
       },
       {
         "when": "ground",
         "model": {
           "type": "minecraft:model",
-          "model": "qcontent:item/longsword_gui"
+          "model": "qcontent:item/refined_sword_gui"
         }
       },
       {
         "when": "fixed",
         "model": {
           "type": "minecraft:model",
-          "model": "qcontent:item/longsword_hand"
+          "model": "qcontent:item/refined_sword"
         }
       }
     ],
@@ -30,12 +30,12 @@
       "property": "minecraft:using_item",
       "on_true": {
         "type": "minecraft:model",
-        "model": "qcontent:item/longsword_parry"
+        "model": "qcontent:item/refined_sword_parry"
       },
       "on_false": {
         "type": "minecraft:model",
-        "model": "qcontent:item/longsword_hand"
+        "model": "qcontent:item/refined_sword"
       }
     }
- }
+  }
 }

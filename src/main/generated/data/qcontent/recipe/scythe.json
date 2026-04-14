@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "r": "qcontent:refined_ingot",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    " rr",
+    " r ",
+    " s "
+  ],
+  "result": {
+    "id": "qcontent:scythe"
+  }
+}

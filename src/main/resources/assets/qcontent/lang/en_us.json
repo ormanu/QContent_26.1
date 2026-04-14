@@ -1,6 +1,18 @@
 {
+
+  "creativeTab.qcontent": "QContent",
+
+  "sound.qcontent.scythe_hit": "Scythe Hit",
+
+  "tag.item.qcontent.refined_repair": "Refined Repair Materials",
+  "itemTooltip.qcontent.refinedsword": "Parry heavy attacks",
+  "itemTooltip.qcontent.scythe": "Pull enemies to you",
+
   "item.qcontent.longsword": "Echo Longsword",
   "item.qcontent.v2trident": "V2 Riptide",
+  "item.qcontent.scythe": "Refined Scythe",
+  "item.qcontent.refined_sword": "Refined Sword",
+  "item.qcontent.refined_ingot": "Refined Ingot",
 
   "qcontent.midnightconfig.title": "QContent Config",
   "qcontent.midnightconfig.fireworkRecoilPower" : "Firework Recoil Power",
