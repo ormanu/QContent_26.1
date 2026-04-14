@@ -1,0 +1,10 @@
+{
+  "scythe_hit": {
+    "subtitle": "sound.qcontent.scythe_hit",
+    "sounds": ["qcontent:scythe_hit"]
+  },
+  "parry": {
+    "subtitle": "sound.qcontent.parry",
+    "sounds": ["qcontent:parry"]
+  }
+}
