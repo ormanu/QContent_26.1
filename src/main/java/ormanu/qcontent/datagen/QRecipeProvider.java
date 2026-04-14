@@ -31,7 +31,7 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .define('e', Items.ECHO_SHARD)
                         .define('c', Items.SCULK_CATALYST)
                         .define('s', Items.STICK)
-                        .unlockedBy(getHasName(ModItems.LongSword), has(ModItems.LongSword))
+                        .unlockedBy(getHasName(Items.ECHO_SHARD), has(Items.ECHO_SHARD))
                         .save(output);
 
                 shaped(RecipeCategory.COMBAT, ModItems.V2Trident, 1)
@@ -41,7 +41,23 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .define('e', Items.ECHO_SHARD)
                         .define('a', Items.AMETHYST_SHARD)
                         .define('s', Items.STICK)
-                        .unlockedBy(getHasName(ModItems.V2Trident), has(ModItems.V2Trident))
+                        .unlockedBy(getHasName(Items.ECHO_SHARD), has(Items.ECHO_SHARD))
+                        .save(output);
+                shaped(RecipeCategory.MISC, ModItems.Refined_Ingot, 1)
+                        .pattern(" g ")
+                        .pattern(" dn")
+                        .define('g', Items.GOLD_INGOT)
+                        .define('d', Items.DIAMOND)
+                        .define('n', Items.NETHERITE_SCRAP)
+                        .unlockedBy(getHasName(Items.NETHERITE_SCRAP), has(Items.NETHERITE_SCRAP))
+                        .save(output);
+                shaped(RecipeCategory.COMBAT, ModItems.Scythe, 1)
+                        .pattern(" rr")
+                        .pattern(" r ")
+                        .pattern(" s ")
+                        .define('r', ModItems.Refined_Ingot)
+                        .define('s', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.Refined_Ingot), has(ModItems.Refined_Ingot))
                         .save(output);
             }
         };
