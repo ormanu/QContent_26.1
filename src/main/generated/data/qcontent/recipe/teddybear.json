@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": "minecraft:brown_dye",
+    "s": "minecraft:string",
+    "w": "#minecraft:wool"
+  },
+  "pattern": [
+    " b ",
+    " sw"
+  ],
+  "result": {
+    "id": "qcontent:teddybear"
+  }
+}

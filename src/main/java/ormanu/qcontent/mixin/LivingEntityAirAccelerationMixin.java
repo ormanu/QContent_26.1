@@ -24,7 +24,7 @@ public abstract class LivingEntityAirAccelerationMixin extends net.minecraft.wor
 
         if (!AirBoostManager.hasBoost(player.getUUID())) return;
 
-        if (this.onGround()) {
+        if (this.onGround() || this.isInWater()) {
             AirBoostManager.clear(player.getUUID());
             return;
         }

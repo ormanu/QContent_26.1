@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import ormanu.qcontent.entity.TrainingDummyEntity;
 import ormanu.qcontent.items.ModItems;
 
 @Mixin(Player.class)
@@ -17,6 +18,8 @@ public class PlayerScythePullMixin {
     @Inject(method = "attack", at = @At("TAIL"))
     private void qcontent$scythePull(Entity target, CallbackInfo ci) {
         Player player = (Player)(Object)this;
+
+        if (target instanceof TrainingDummyEntity) return;
 
         if (player.level().isClientSide()) return;
         if (!(target instanceof LivingEntity living)) return;

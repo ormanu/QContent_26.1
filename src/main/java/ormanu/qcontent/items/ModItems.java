@@ -12,7 +12,9 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import ormanu.qcontent.QContent;
+import ormanu.qcontent.blocks.ModBlocks;
 import ormanu.qcontent.datagen.QItemTagProvider;
+import ormanu.qcontent.entity.ModEntityTypes;
 
 
 import java.util.function.Function;
@@ -33,7 +35,7 @@ public class ModItems {
     );
 
     public static final Item RefinedSword = registerItem("refined_sword", RefinedSwordItem::new,
-            new Item.Properties().sword(ModItems.REFINED_TOOLMATERIAL, 5f, -2.8f).rarity(Rarity.COMMON).fireResistant().enchantable(30)
+            new Item.Properties().sword(ModItems.REFINED_TOOLMATERIAL, 5f, -2.8f).rarity(Rarity.UNCOMMON).fireResistant().enchantable(30)
     );
 
     public static final Item Scythe = registerItem("scythe", ScytheItem::new,
@@ -46,6 +48,18 @@ public class ModItems {
 
     public static final Item Refined_Ingot = registerItem("refined_ingot", Item::new,
             new Item.Properties().stacksTo(64)
+    );
+
+    public static final Item CROW_SPAWN_EGG = registerItem(
+            "crow_spawn_egg",
+            SpawnEggItem::new,
+            new Item.Properties().spawnEgg(ModEntityTypes.CROW)
+    );
+
+    public static final Item TRAINING_DUMMY_SPAWN_EGG = registerItem(
+            "training_dummy",
+            SpawnEggItem::new,
+            new Item.Properties().spawnEgg(ModEntityTypes.TRAINING_DUMMY)
     );
 
     public static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
@@ -68,6 +82,9 @@ public class ModItems {
                 output.accept(ModItems.Scythe);
                 output.accept(ModItems.Refined_Ingot);
                 output.accept(ModItems.RefinedSword);
+                output.accept(ModBlocks.TeddyBear);
+                output.accept(ModItems.CROW_SPAWN_EGG);
+                output.accept(ModItems.TRAINING_DUMMY_SPAWN_EGG);
             })
             .build();
 

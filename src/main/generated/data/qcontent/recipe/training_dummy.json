@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "h": "minecraft:hay_block",
+    "l": "#minecraft:wooden_slabs",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    " h ",
+    " s ",
+    "lll"
+  ],
+  "result": {
+    "id": "qcontent:training_dummy"
+  }
+}

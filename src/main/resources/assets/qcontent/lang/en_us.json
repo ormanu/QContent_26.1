@@ -3,21 +3,29 @@
   "creativeTab.qcontent": "QContent",
 
   "sound.qcontent.scythe_hit": "Scythe Hit",
+  "sound.qcontent.parry": "Parry Attack",
 
   "tag.item.qcontent.refined_repair": "Refined Repair Materials",
   "itemTooltip.qcontent.refinedsword": "Parry heavy attacks",
   "itemTooltip.qcontent.scythe": "Pull enemies to you",
+  "itemTooltip.qcontent.v2trident": "Riptide anywhere at a cost",
+  "itemTooltip.qcontent.longsword": "Cleave ability for crowd control",
+
+  "block.qcontent.teddybear": "Teddy Bear",
+
+  "entity.qcontent.crow": "Crow",
 
   "item.qcontent.longsword": "Echo Longsword",
   "item.qcontent.v2trident": "V2 Riptide",
   "item.qcontent.scythe": "Refined Scythe",
   "item.qcontent.refined_sword": "Refined Sword",
   "item.qcontent.refined_ingot": "Refined Ingot",
+  "item.qcontent.crow_spawn_egg": "Crow Spawn Egg",
+  "item.qcontent.training_dummy": "Training Dummy",
 
   "qcontent.midnightconfig.title": "QContent Config",
   "qcontent.midnightconfig.fireworkRecoilPower" : "Firework Recoil Power",
   "qcontent.midnightconfig.fireworkUpwardKick" : "Firework Upward Kick",
-  "qcontent.midnightconfig.airBoostDuration" : "Air Boost Duration",
   "qcontent.midnightconfig.airAcceleration" : "Air Acceleration",
   "qcontent.midnightconfig.maxAirSpeed" : "Max Air Speed"
 }

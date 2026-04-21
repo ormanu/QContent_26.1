@@ -7,8 +7,10 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import ormanu.qcontent.blocks.ModBlocks;
 import ormanu.qcontent.items.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -24,16 +26,16 @@ public class QRecipeProvider extends FabricRecipeProvider {
             public void buildRecipes() {
                 HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
 
+                //items
                 shaped(RecipeCategory.COMBAT, ModItems.LongSword, 1)
-                        .pattern("  e")
+                        .pattern(" e ")
                         .pattern(" c ")
-                        .pattern("s  ")
+                        .pattern(" s ")
                         .define('e', Items.ECHO_SHARD)
                         .define('c', Items.SCULK_CATALYST)
                         .define('s', Items.STICK)
                         .unlockedBy(getHasName(Items.ECHO_SHARD), has(Items.ECHO_SHARD))
                         .save(output);
-
                 shaped(RecipeCategory.COMBAT, ModItems.V2Trident, 1)
                         .pattern(" e ")
                         .pattern(" a ")
@@ -58,6 +60,33 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .define('r', ModItems.Refined_Ingot)
                         .define('s', Items.STICK)
                         .unlockedBy(getHasName(ModItems.Refined_Ingot), has(ModItems.Refined_Ingot))
+                        .save(output);
+                shaped(RecipeCategory.COMBAT, ModItems.RefinedSword, 1)
+                        .pattern(" r ")
+                        .pattern(" r ")
+                        .pattern(" s ")
+                        .define('r', ModItems.Refined_Ingot)
+                        .define('s', Items.STICK)
+                        .unlockedBy(getHasName(ModItems.Refined_Ingot), has(ModItems.Refined_Ingot))
+                        .save(output);
+                shaped(RecipeCategory.DECORATIONS, ModItems.TRAINING_DUMMY_SPAWN_EGG, 1)
+                        .pattern(" h ")
+                        .pattern(" s ")
+                        .pattern("lll")
+                        .define('h', Items.HAY_BLOCK)
+                        .define('s', Items.STICK)
+                        .define('l', ItemTags.WOODEN_SLABS)
+                        .unlockedBy(getHasName(Items.HAY_BLOCK), has(Items.HAY_BLOCK))
+                        .save(output);
+
+                //blocks
+                shaped(RecipeCategory.DECORATIONS, ModBlocks.TeddyBear, 1)
+                        .pattern(" b ")
+                        .pattern(" sw")
+                        .define('b', Items.BROWN_DYE)
+                        .define('s', Items.STRING)
+                        .define('w', ItemTags.WOOL)
+                        .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
                         .save(output);
             }
         };

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "qcontent:block/teddybear" },
+    "facing=east":  { "model": "qcontent:block/teddybear", "y": 90 },
+    "facing=south": { "model": "qcontent:block/teddybear", "y": 180 },
+    "facing=west":  { "model": "qcontent:block/teddybear", "y": 270 }
+  }
+}

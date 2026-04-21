@@ -35,7 +35,6 @@ public class PlayerSweepParticleMixin {
             Player player = (Player)(Object)this;
             ItemStack held = player.getMainHandItem();
 
-            // Only for your longsword
             if (held.is(ModItems.LongSword)) {
                 level.sendParticles(QContent.SCULK_SWEEP, x, y, z, count, dx, dy, dz, speed);
                 return 0; // don't call vanilla

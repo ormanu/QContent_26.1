@@ -43,7 +43,7 @@ public class CrossbowItemMixin {
             player.setDeltaMovement(player.getDeltaMovement().add(recoilBoost));
             player.hurtMarked = true;
 
-            AirBoostManager.setBoostTicks(player.getUUID(), ormanu.qcontent.config.QConfig.airBoostDuration);
+            AirBoostManager.setBoostUntilGround(player.getUUID());
             //System.out.println("SET AIR BOOST FOR " + player.getName().getString());
         }
     }
