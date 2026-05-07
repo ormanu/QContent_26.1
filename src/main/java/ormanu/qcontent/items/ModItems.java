@@ -8,8 +8,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import ormanu.qcontent.QContent;
 import ormanu.qcontent.blocks.ModBlocks;
@@ -50,16 +48,16 @@ public class ModItems {
             new Item.Properties().stacksTo(64)
     );
 
-    public static final Item CROW_SPAWN_EGG = registerItem(
-            "crow_spawn_egg",
-            SpawnEggItem::new,
+    public static final Item CROW_SPAWN_EGG = registerItem("crow_spawn_egg", SpawnEggItem::new,
             new Item.Properties().spawnEgg(ModEntityTypes.CROW)
     );
 
-    public static final Item TRAINING_DUMMY_SPAWN_EGG = registerItem(
-            "training_dummy",
-            SpawnEggItem::new,
+    public static final Item TRAINING_DUMMY_SPAWN_EGG = registerItem("training_dummy", SpawnEggItem::new,
             new Item.Properties().spawnEgg(ModEntityTypes.TRAINING_DUMMY)
+    );
+
+    public static final Item CARDBOARD_HIDE = registerItem("cardboard_hide", CardboardHideItem::new,
+            new Item.Properties().stacksTo(16)
     );
 
     public static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
@@ -85,6 +83,8 @@ public class ModItems {
                 output.accept(ModBlocks.TeddyBear);
                 output.accept(ModItems.CROW_SPAWN_EGG);
                 output.accept(ModItems.TRAINING_DUMMY_SPAWN_EGG);
+                output.accept(ModItems.CARDBOARD_HIDE);
+                output.accept(ModBlocks.Cardboard_Box);
             })
             .build();
 

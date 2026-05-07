@@ -6,5 +6,9 @@
   "parry": {
     "subtitle": "sound.qcontent.parry",
     "sounds": ["qcontent:parry"]
+  },
+  "caw": {
+    "subtitle": "sound.qcontent.caw",
+    "sounds": ["qcontent:caw1", "qcontent:caw2", "qcontent:caw3"]
   }
 }

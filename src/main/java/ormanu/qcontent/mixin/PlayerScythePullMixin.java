@@ -26,7 +26,6 @@ public class PlayerScythePullMixin {
 
         ItemStack held = player.getMainHandItem();
 
-        // IMPORTANT: change this to your actual scythe item field name
         if (!held.is(ModItems.Scythe)) return;
 
         // don't pull if already basically touching

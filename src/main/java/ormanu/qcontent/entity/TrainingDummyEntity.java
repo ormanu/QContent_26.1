@@ -3,6 +3,9 @@ package ormanu.qcontent.entity;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -34,6 +37,19 @@ public class TrainingDummyEntity extends PathfinderMob {
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
     }
 
+    private static final EntityDataAccessor<Integer> HIT_TICKS =
+            SynchedEntityData.defineId(TrainingDummyEntity.class, EntityDataSerializers.INT);
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(HIT_TICKS, 0);
+    }
+
+    public int qcontent$getHitTicks() {
+        return this.entityData.get(HIT_TICKS);
+    }
+
     @Override
     public void tick() {
         super.tick();
@@ -52,6 +68,8 @@ public class TrainingDummyEntity extends PathfinderMob {
 
         // optional: keep it always "healthy"
         if (!this.level().isClientSide()) {
+            int t = this.entityData.get(HIT_TICKS);
+            if (t > 0) this.entityData.set(HIT_TICKS, t - 1);
             this.setHealth(this.getMaxHealth());
         }
     }
@@ -90,6 +108,8 @@ public class TrainingDummyEntity extends PathfinderMob {
         float before = this.getHealth();
         boolean result = super.hurtServer(level, source, amount);
         float dealt = Math.max(0.0F, before - this.getHealth());
+
+        this.entityData.set(HIT_TICKS, 8);
 
         if (source.getEntity() instanceof ServerPlayer sp) {
             sp.connection.send(new ClientboundSetActionBarTextPacket(

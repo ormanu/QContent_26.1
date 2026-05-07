@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "c": "qcontent:cardboard_box",
+    "r": "minecraft:redstone"
+  },
+  "pattern": [
+    " r ",
+    " c "
+  ],
+  "result": {
+    "id": "qcontent:cardboard_hide"
+  }
+}

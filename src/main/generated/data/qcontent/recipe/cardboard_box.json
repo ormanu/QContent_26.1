@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": "minecraft:string",
+    "w": "#minecraft:wooden_slabs"
+  },
+  "pattern": [
+    "wsw",
+    "www"
+  ],
+  "result": {
+    "id": "qcontent:cardboard_box"
+  }
+}

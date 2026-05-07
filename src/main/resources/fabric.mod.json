@@ -8,10 +8,10 @@
 		"ormanu"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://www.instagram.com/matei_orman/",
+		"sources": "https://github.com/ormanu/QContent_26.1"
 	},
-	"license": "ARR",
+	"license": "All Rights Reserved",
 	"icon": "assets/qcontent/icon.png",
 	"environment": "*",
 	"entrypoints": {

@@ -7,8 +7,14 @@
     "LivingEntityAirAccelerationMixin",
     "NoSelfFireworkDamageMixin",
     "ParryMixin",
+    "PlayerReachMixin",
     "PlayerScythePullMixin",
-    "PlayerSweepParticleMixin"
+    "PlayerSweepParticleMixin",
+    "box.AvatarBoxedDataMixin",
+    "box.EntityBoxedRefreshMixin",
+    "box.LivingEntityBoxedDimensionsMixin",
+    "box.MobNoAggroWhenBoxedMixin",
+    "box.PlayerBoxSlotMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -17,6 +23,16 @@
     "requireAnnotations": true
   },
   "client": [
-    "HumanoidModelMixin"
+    "HumanoidModelMixin",
+    "box.AvatarRendererHideNameWhenBoxedMixin",
+    "box.client.AvatarRendererAddBoxLayerMixin",
+    "box.client.AvatarRendererExtractBoxedMixin",
+    "box.client.AvatarRenderStateBoxedMixin",
+    "box.client.LivingEntityRendererLayersAccessor",
+    "box.client.PlayerItemInHandLayerHideWhenBoxedMixin",
+    "box.client.PlayerModelHideWhenBoxedMixin",
+    "client.AvatarRenderStateMixin",
+    "client.PlayerRendererMixin",
+    "client.SpinAttackEffectLayerMixin"
   ]
 }

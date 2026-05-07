@@ -4,14 +4,20 @@
 
   "sound.qcontent.scythe_hit": "Scythe Hit",
   "sound.qcontent.parry": "Parry Attack",
+  "sound.qcontent.caw": "Caw",
 
   "tag.item.qcontent.refined_repair": "Refined Repair Materials",
+  "tag.item.qcontent.extended_reach": "Extended Reach Weapons",
+  "tag.item.qcontent.crow_scavenge": "Crow Scavenge Items",
+
   "itemTooltip.qcontent.refinedsword": "Parry heavy attacks",
-  "itemTooltip.qcontent.scythe": "Pull enemies to you",
+  "itemTooltip.qcontent.scythe": "Pull enemies to you with increased reach",
   "itemTooltip.qcontent.v2trident": "Riptide anywhere at a cost",
   "itemTooltip.qcontent.longsword": "Cleave ability for crowd control",
+  "itemTooltip.qcontent.cardboard_box": "You can hide in the box and spy on some people",
 
   "block.qcontent.teddybear": "Teddy Bear",
+  "block.qcontent.cardboard_box": "Cardboard Box",
 
   "entity.qcontent.crow": "Crow",
 
@@ -22,6 +28,7 @@
   "item.qcontent.refined_ingot": "Refined Ingot",
   "item.qcontent.crow_spawn_egg": "Crow Spawn Egg",
   "item.qcontent.training_dummy": "Training Dummy",
+  "item.qcontent.cardboard_hide": "Cardboard Box Hide",
 
   "qcontent.midnightconfig.title": "QContent Config",
   "qcontent.midnightconfig.fireworkRecoilPower" : "Firework Recoil Power",

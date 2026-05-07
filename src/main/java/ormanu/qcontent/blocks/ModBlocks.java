@@ -23,6 +23,13 @@ public class ModBlocks {
             true
     );
 
+    public static final Block Cardboard_Box = register(
+            "cardboard_box",
+            CardboardBoxBlock::new,
+            BlockBehaviour.Properties.of().sound(SoundType.WOOL).noOcclusion(),
+            true
+    );
+
     private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
         // Create a registry key for the block
         ResourceKey<Block> blockKey = keyOfBlock(name);

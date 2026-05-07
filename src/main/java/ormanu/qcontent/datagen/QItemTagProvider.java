@@ -8,6 +8,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import ormanu.qcontent.QContent;
 import ormanu.qcontent.items.ModItems;
 
@@ -19,6 +20,9 @@ public class QItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
     }
 
     public static final TagKey<Item> REFINED_REPAIR = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(QContent.MOD_ID, "refined_repair"));
+    public static final TagKey<Item> EXTENDED_REACH = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(QContent.MOD_ID, "extended_reach"));
+    public static final TagKey<Item> CROW_SCAVENGE = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(QContent.MOD_ID, "crow_scavenge"));
+
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
@@ -30,5 +34,15 @@ public class QItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
                 .add(ModItems.V2Trident);
         valueLookupBuilder(REFINED_REPAIR)
                 .add(ModItems.Refined_Ingot);
+        valueLookupBuilder(EXTENDED_REACH)
+                .add(ModItems.Scythe)
+                .add(ModItems.RefinedSword);
+        valueLookupBuilder(CROW_SCAVENGE)
+                .add(Items.WHEAT_SEEDS)
+                .add(Items.PUMPKIN_SEEDS)
+                .add(Items.MELON_SEEDS)
+                .add(Items.GOLD_NUGGET)
+                .add(Items.IRON_NUGGET)
+                .add(Items.AMETHYST_SHARD);
     }
 }

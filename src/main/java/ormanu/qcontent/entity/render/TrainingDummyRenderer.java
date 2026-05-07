@@ -24,4 +24,12 @@ public class TrainingDummyRenderer extends MobRenderer<TrainingDummyEntity, Trai
     public @NonNull Identifier getTextureLocation(TrainingDummyRenderState state) {
         return TEXTURE;
     }
+
+    @Override
+    public void extractRenderState(TrainingDummyEntity entity, TrainingDummyRenderState state, float partialTick) {
+        super.extractRenderState(entity, state, partialTick);
+
+        // copy your synced timer from the entity into the render state
+        state.hitTicks = entity.qcontent$getHitTicks();
+    }
 }

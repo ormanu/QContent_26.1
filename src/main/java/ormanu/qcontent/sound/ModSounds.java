@@ -10,6 +10,7 @@ public class ModSounds {
 
     public static final SoundEvent ScytheHit = registerSound("scythe_hit");
     public static final SoundEvent Parry = registerSound("parry");
+    public static final SoundEvent Caw = registerSound("caw");
 
     private static SoundEvent registerSound(String id) {
         Identifier identifier = Identifier.fromNamespaceAndPath(QContent.MOD_ID, id);

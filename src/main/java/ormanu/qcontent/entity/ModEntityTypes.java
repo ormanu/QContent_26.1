@@ -15,8 +15,9 @@ public class ModEntityTypes {
 
     public static final EntityType<CrowEntity> CROW = register(
             "crow",
-            EntityType.Builder.<CrowEntity>of(CrowEntity::new, MobCategory.MISC)
-                    .sized(0.75f, 0.75f)
+            EntityType.Builder.<CrowEntity>of(CrowEntity::new, MobCategory.CREATURE)
+                    .sized(0.45f, 0.55f)
+                    .clientTrackingRange(10)
     );
 
     public static final EntityType<TrainingDummyEntity> TRAINING_DUMMY = register(
@@ -36,7 +37,7 @@ public class ModEntityTypes {
     }
 
     public static void registerAttributes() {
-        FabricDefaultAttributeRegistry.register(CROW, CrowEntity.createCubeAttributes());
+        FabricDefaultAttributeRegistry.register(CROW, CrowEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(TRAINING_DUMMY, TrainingDummyEntity.createAttributes());
     }
 

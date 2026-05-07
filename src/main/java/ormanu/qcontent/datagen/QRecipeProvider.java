@@ -78,6 +78,13 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .define('l', ItemTags.WOODEN_SLABS)
                         .unlockedBy(getHasName(Items.HAY_BLOCK), has(Items.HAY_BLOCK))
                         .save(output);
+                shaped(RecipeCategory.COMBAT, ModItems.CARDBOARD_HIDE, 1)
+                        .pattern(" r ")
+                        .pattern(" c ")
+                        .define('c', ModBlocks.Cardboard_Box)
+                        .define('r', Items.REDSTONE)
+                        .unlockedBy(getHasName(ModBlocks.Cardboard_Box), has(ModBlocks.Cardboard_Box))
+                        .save(output);
 
                 //blocks
                 shaped(RecipeCategory.DECORATIONS, ModBlocks.TeddyBear, 1)
@@ -88,6 +95,14 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .define('w', ItemTags.WOOL)
                         .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
                         .save(output);
+                shaped(RecipeCategory.DECORATIONS, ModBlocks.Cardboard_Box, 1)
+                        .pattern("wsw")
+                        .pattern("www")
+                        .define('s', Items.STRING)
+                        .define('w', ItemTags.WOODEN_SLABS)
+                        .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                        .save(output);
+
             }
         };
     }

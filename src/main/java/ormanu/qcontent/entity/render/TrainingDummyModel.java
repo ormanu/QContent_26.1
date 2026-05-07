@@ -4,6 +4,7 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
 
 public class TrainingDummyModel extends EntityModel<TrainingDummyRenderState> {
     private final ModelPart head;
@@ -94,7 +95,14 @@ public class TrainingDummyModel extends EntityModel<TrainingDummyRenderState> {
 
     @Override
     public void setupAnim(TrainingDummyRenderState state) {
-        // keep static (or add small idle wobble later)
+
+        float hit = state.hitTicks / 8.0f;              // 1 -> 0
+        float flinch = Mth.sin(hit * Mth.PI);          // nice single bump
+
+        this.body.xRot = -0.15f * flinch;
+        this.head.xRot =  0.10f * flinch;
+        this.arms.xRot =  -0.15f * flinch;
+        this.wood.xRot =  -0.15f * flinch;
     }
 
 }

@@ -11,11 +11,6 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
 	// Midnightlib
 	maven {
 		url = "https://maven.midnightdust.eu/releases"
@@ -23,6 +18,18 @@ repositories {
 
 	// Mod Menu
 	maven { url "https://maven.terraformersmc.com/releases/" }
+
+	repositories {
+		exclusiveContent {
+			forRepository {
+				maven {
+					name = 'GeckoLib'
+					url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+				}
+			}
+			filter { includeGroupAndSubgroups('com.geckolib') }
+		}
+	}
 }
 
 fabricApi {
@@ -42,6 +49,8 @@ dependencies {
 
 	implementation("com.terraformersmc:modmenu:18.0.0-alpha.8")
 	implementation include ("eu.midnightdust:midnightlib:1.9.2+26.1-fabric")
+
+	implementation "com.geckolib:geckolib-fabric-${minecraft_version}:${geckolibVersion}"
 }
 
 processResources {
