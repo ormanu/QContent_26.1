@@ -14,7 +14,8 @@
     "box.EntityBoxedRefreshMixin",
     "box.LivingEntityBoxedDimensionsMixin",
     "box.MobNoAggroWhenBoxedMixin",
-    "box.PlayerBoxSlotMixin"
+    "box.PlayerBoxSlotMixin",
+    "box.PlayerBoxedMixin"
   ],
   "injectors": {
     "defaultRequire": 1

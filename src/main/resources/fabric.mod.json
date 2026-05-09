@@ -11,7 +11,7 @@
 		"homepage": "https://www.instagram.com/matei_orman/",
 		"sources": "https://github.com/ormanu/QContent_26.1"
 	},
-	"license": "All Rights Reserved",
+	"license": "MIT",
 	"icon": "assets/qcontent/icon.png",
 	"environment": "*",
 	"entrypoints": {

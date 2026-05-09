@@ -15,11 +15,13 @@ public class ScavengeGoal extends Goal {
     private final CrowEntity crow;
     private final double speed;
     private ItemEntity target;
+    private int pathUpdateCountdown; // Added to prevent pathfinding lag/stuttering
 
     public ScavengeGoal(CrowEntity crow, double speed) {
         this.crow = crow;
         this.speed = speed;
-        this.setFlags(EnumSet.of(Flag.MOVE));
+        // Added Flag.LOOK so the crow actually looks at the item it's walking towards
+        this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
     }
 
     @Override
@@ -29,9 +31,13 @@ public class ScavengeGoal extends Goal {
         if (crow.getRandom().nextInt(25) != 0) return false; // ~once/sec gate
         if (crow.isInWater()) return false;
 
-        AABB box = crow.getBoundingBox().inflate(8.0);
+        // Inflated the Y-axis slightly less than X/Z to prevent detecting items through thick ceilings/floors
+        AABB box = crow.getBoundingBox().inflate(8.0, 4.0, 8.0);
         List<ItemEntity> items = crow.level().getEntitiesOfClass(ItemEntity.class, box,
-                e -> e.isAlive() && !e.getItem().isEmpty() && e.getItem().is(QItemTagProvider.CROW_SCAVENGE));
+                e -> e.isAlive()
+                        && !e.hasPickUpDelay() // Ensure the item can actually be picked up
+                        && !e.getItem().isEmpty()
+                        && e.getItem().is(QItemTagProvider.CROW_SCAVENGE));
 
         if (items.isEmpty()) return false;
 
@@ -57,24 +63,39 @@ public class ScavengeGoal extends Goal {
 
     @Override
     public void start() {
-        crow.getNavigation().moveTo(target, speed);
+        this.pathUpdateCountdown = 0; // Reset the countdown when the goal starts
     }
 
     @Override
     public void tick() {
         if (target == null) return;
 
-        crow.getNavigation().moveTo(target, speed);
+        // Make the crow look at the item
+        crow.getLookControl().setLookAt(target, 30.0F, 30.0F);
 
-        if (crow.distanceToSqr(target) < 1.2 * 1.2) {
+        // Only update the path every 10 ticks (half a second).
+        // This stops the crow from stuttering and saves performance!
+        if (--this.pathUpdateCountdown <= 0) {
+            this.pathUpdateCountdown = 10;
+            crow.getNavigation().moveTo(target, speed);
+        }
+
+        // Use Bounding Box intersection instead of distanceToSqr.
+        // This is much more reliable for item pickups!
+        if (crow.getBoundingBox().inflate(0.5).intersects(target.getBoundingBox())) {
             ItemStack stack = target.getItem();
 
             ItemStack one = stack.copy();
             one.setCount(1);
             crow.setItemSlot(EquipmentSlot.MAINHAND, one);
 
+            // IMPORTANT: Make sure the crow drops the item if it gets killed!
+            crow.setDropChance(EquipmentSlot.MAINHAND, 1.0F);
+
             stack.shrink(1);
-            if (stack.isEmpty()) target.discard();
+            if (stack.isEmpty()) {
+                target.discard();
+            }
 
             target = null;
         }
@@ -83,5 +104,6 @@ public class ScavengeGoal extends Goal {
     @Override
     public void stop() {
         target = null;
+        crow.getNavigation().stop(); // Stop walking when the goal finishes or is interrupted
     }
 }
