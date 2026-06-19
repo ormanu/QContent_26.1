@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "qcontent:refined"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "qcontent:refined"
+      }
+    ]
+  }
+}

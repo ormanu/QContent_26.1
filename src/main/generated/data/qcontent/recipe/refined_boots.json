@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "r": "qcontent:refined_ingot"
+  },
+  "pattern": [
+    "r r",
+    "r r"
+  ],
+  "result": {
+    "id": "qcontent:refined_boots"
+  }
+}

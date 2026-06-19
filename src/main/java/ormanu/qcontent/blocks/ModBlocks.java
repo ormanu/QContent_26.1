@@ -1,16 +1,19 @@
 package ormanu.qcontent.blocks;
 
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import ormanu.qcontent.QContent;
+import ormanu.qcontent.items.ModItems;
 
 import java.util.function.Function;
 
@@ -23,10 +26,35 @@ public class ModBlocks {
             true
     );
 
-    public static final Block Cardboard_Box = register(
-            "cardboard_box",
-            CardboardBoxBlock::new,
-            BlockBehaviour.Properties.of().sound(SoundType.WOOL).noOcclusion(),
+    public static final Block CALCITE_STAIRS = register(
+            "calcite_stairs",
+            properties -> new StairBlock(Blocks.CALCITE.defaultBlockState(),
+                    properties.strength(0.75f).requiresCorrectToolForDrops()),
+            BlockBehaviour.Properties.of(),
+            true
+    );
+
+    public static final Block CALCITE_SLABS = register(
+            "calcite_slab",
+            properties -> new SlabBlock(
+                    properties.strength(0.75f).requiresCorrectToolForDrops()),
+            BlockBehaviour.Properties.of(),
+            true
+    );
+
+    public static final Block COARSE_DIRT_SLAB = register(
+            "coarse_dirt_slab",
+            properties -> new SlabBlock(
+                    properties.strength(0.75f).requiresCorrectToolForDrops()),
+            BlockBehaviour.Properties.of(),
+            true
+    );
+
+    public static final Block DIRT_SLAB = register(
+            "dirt_slab",
+            properties -> new SlabBlock(
+                    properties.strength(0.75f).requiresCorrectToolForDrops()),
+            BlockBehaviour.Properties.of(),
             true
     );
 
@@ -58,5 +86,16 @@ public class ModBlocks {
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(QContent.MOD_ID, name));
     }
 
-    public static void initialize() {}
+    public static void initialize() {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS)
+                .register((creativeTab) -> creativeTab.accept(ModBlocks.CALCITE_STAIRS));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS)
+                .register((creativeTab) -> creativeTab.accept(ModBlocks.CALCITE_SLABS));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS)
+                .register((creativeTab) -> creativeTab.accept(ModBlocks.DIRT_SLAB));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS)
+                .register((creativeTab) -> creativeTab.accept(ModBlocks.COARSE_DIRT_SLAB));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS)
+                .register((creativeTab) -> creativeTab.accept(ModBlocks.TeddyBear));
+    }
 }

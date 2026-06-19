@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "c": "minecraft:calcite"
+  },
+  "pattern": [
+    "c  ",
+    "cc ",
+    "ccc"
+  ],
+  "result": {
+    "count": 4,
+    "id": "qcontent:calcite_stairs"
+  }
+}

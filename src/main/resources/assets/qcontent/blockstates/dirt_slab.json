@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "qcontent:block/dirt_slab" },
+    "type=top":    { "model": "qcontent:block/dirt_slab_top" },
+    "type=double": { "model": "qcontent:block/dirt_slab_double" }
+  }
+}

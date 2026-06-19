@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": "minecraft:bundle",
+    "d": "minecraft:diamond",
+    "l": "minecraft:leather"
+  },
+  "pattern": [
+    "ldl",
+    "lbl"
+  ],
+  "result": {
+    "id": "qcontent:pouch"
+  }
+}

@@ -15,7 +15,7 @@ public class ModEntityTypes {
 
     public static final EntityType<CrowEntity> CROW = register(
             "crow",
-            EntityType.Builder.<CrowEntity>of(CrowEntity::new, MobCategory.CREATURE)
+            EntityType.Builder.of(CrowEntity::new, MobCategory.CREATURE)
                     .sized(0.45f, 0.55f)
                     .clientTrackingRange(10)
     );

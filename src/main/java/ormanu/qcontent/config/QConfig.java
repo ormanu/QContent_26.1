@@ -4,9 +4,10 @@ import eu.midnightdust.lib.config.MidnightConfig;
 
 public class QConfig extends MidnightConfig {
 
-    @Entry(category = "movement") public static double fireworkRecoilPower = 1.5;
-    @Entry(category = "movement") public static double fireworkUpwardKick = 0.5;
-    @Entry(category = "movement") public static double airAcceleration = 0.09;
-    @Entry(category = "movement") public static double maxAirSpeed = 2.5;
+    @Entry(category = "all") public static double fireworkRecoilPower = 1.5;
+    @Entry(category = "all") public static double fireworkUpwardKick = 0.5;
+    @Entry(category = "all") public static double airAcceleration = 0.09;
+    @Entry(category = "all") public static double maxAirSpeed = 2.5;
+    @Entry(category = "all") public static double magnet_range = 8;
 
 }

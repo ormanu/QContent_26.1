@@ -2,6 +2,11 @@
 
   "creativeTab.qcontent": "QContent",
 
+  "key.category.qcontent.qcontent": "QContent",
+  "key.qcontent.toggle_hood": "Toggle Hood",
+  "key.qcontent.toggle_magnet": "Toggle Magnet",
+  "key.qcontent.open_backpack": "Open Backpack",
+
   "sound.qcontent.scythe_hit": "Scythe Hit",
   "sound.qcontent.parry": "Parry Attack",
   "sound.qcontent.caw": "Caw",
@@ -9,6 +14,7 @@
   "tag.item.qcontent.refined_repair": "Refined Repair Materials",
   "tag.item.qcontent.extended_reach": "Extended Reach Weapons",
   "tag.item.qcontent.crow_scavenge": "Crow Scavenge Items",
+  "tag.item.qcontent.pouch_enchantable": "Pouch Enchantable",
 
   "itemTooltip.qcontent.refinedsword": "Parry heavy attacks",
   "itemTooltip.qcontent.scythe": "Pull enemies to you with increased reach",
@@ -17,9 +23,15 @@
   "itemTooltip.qcontent.cardboard_box": "You can hide in the box and spy on some people",
 
   "block.qcontent.teddybear": "Teddy Bear",
-  "block.qcontent.cardboard_box": "Cardboard Box",
+  "block.qcontent.calcite_stairs": "Calcite Stairs",
+  "block.qcontent.calcite_slab": "Calcite Slab",
+  "block.qcontent.dirt_slab": "Dirt Slab",
+  "block.qcontent.coarse_dirt_slab": "Coarse Dirt Slab",
 
   "entity.qcontent.crow": "Crow",
+
+  "enchantment.qcontent.deep_pockets": "Deep Pockets",
+  "enchantment.qcontent.deep_pockets.desc": "Makes the pouch bigger",
 
   "item.qcontent.longsword": "Echo Longsword",
   "item.qcontent.v2trident": "V2 Riptide",
@@ -28,11 +40,19 @@
   "item.qcontent.refined_ingot": "Refined Ingot",
   "item.qcontent.crow_spawn_egg": "Crow Spawn Egg",
   "item.qcontent.training_dummy": "Training Dummy",
-  "item.qcontent.cardboard_hide": "Cardboard Box Hide",
+  "item.qcontent.magnet": "Magnet",
+  "item.qcontent.refined_helmet": "Refined Helmet",
+  "item.qcontent.refined_chestplate": "Refined Chestplate",
+  "item.qcontent.refined_leggings": "Refined Leggings",
+  "item.qcontent.refined_boots": "Refined Boots",
+  "item.qcontent.pouch": "Pouch",
+
 
   "qcontent.midnightconfig.title": "QContent Config",
   "qcontent.midnightconfig.fireworkRecoilPower" : "Firework Recoil Power",
   "qcontent.midnightconfig.fireworkUpwardKick" : "Firework Upward Kick",
   "qcontent.midnightconfig.airAcceleration" : "Air Acceleration",
-  "qcontent.midnightconfig.maxAirSpeed" : "Max Air Speed"
+  "qcontent.midnightconfig.maxAirSpeed" : "Max Air Speed",
+  "qcontent.midnightconfig.magnet_range": "Magnet Pick-up Range",
+  "qcontent.midnightconfig.magnet_items": "Magnet Max Items"
 }

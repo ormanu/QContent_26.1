@@ -78,14 +78,14 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .define('l', ItemTags.WOODEN_SLABS)
                         .unlockedBy(getHasName(Items.HAY_BLOCK), has(Items.HAY_BLOCK))
                         .save(output);
-                shaped(RecipeCategory.COMBAT, ModItems.CARDBOARD_HIDE, 1)
-                        .pattern(" r ")
-                        .pattern(" c ")
-                        .define('c', ModBlocks.Cardboard_Box)
-                        .define('r', Items.REDSTONE)
-                        .unlockedBy(getHasName(ModBlocks.Cardboard_Box), has(ModBlocks.Cardboard_Box))
+                shaped(RecipeCategory.MISC, ModItems.POUCH, 1)
+                        .pattern("ldl")
+                        .pattern("lbl")
+                        .define('d', Items.DIAMOND)
+                        .define('b', Items.BUNDLE)
+                        .define('l', Items.LEATHER)
+                        .unlockedBy(getHasName(Items.BUNDLE), has(Items.BUNDLE))
                         .save(output);
-
                 //blocks
                 shaped(RecipeCategory.DECORATIONS, ModBlocks.TeddyBear, 1)
                         .pattern(" b ")
@@ -95,14 +95,71 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .define('w', ItemTags.WOOL)
                         .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
                         .save(output);
-                shaped(RecipeCategory.DECORATIONS, ModBlocks.Cardboard_Box, 1)
-                        .pattern("wsw")
-                        .pattern("www")
-                        .define('s', Items.STRING)
-                        .define('w', ItemTags.WOODEN_SLABS)
-                        .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                shaped(RecipeCategory.TOOLS, ModItems.MAGNET, 1)
+                        .pattern("r r")
+                        .pattern("i i")
+                        .pattern("iii")
+                        .define('i', Items.IRON_INGOT)
+                        .define('r', Items.REDSTONE)
+                        .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
+                        .save(output);
+                shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CALCITE_STAIRS, 4)
+                        .pattern("c  ")
+                        .pattern("cc ")
+                        .pattern("ccc")
+                        .define('c', Items.CALCITE)
+                        .unlockedBy(getHasName(Items.CALCITE), has(Items.CALCITE))
+                        .save(output);
+                shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CALCITE_SLABS, 6)
+                        .pattern("ccc")
+                        .define('c', Items.CALCITE)
+                        .unlockedBy(getHasName(Items.CALCITE), has(Items.CALCITE))
+                        .save(output);
+                shaped(RecipeCategory.BUILDING_BLOCKS, Items.CALCITE, 4)
+                        .pattern("dw")
+                        .pattern("wd")
+                        .define('d', Items.DIORITE)
+                        .define('w', Items.WHITE_DYE)
+                        .unlockedBy(getHasName(Items.DIORITE), has(Items.DIORITE ))
+                        .save(output);
+                shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DIRT_SLAB, 6)
+                        .pattern("ddd")
+                        .define('d', Items.DIRT)
+                        .unlockedBy(getHasName(Items.DIRT), has(Items.DIRT))
+                        .save(output);
+                shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.COARSE_DIRT_SLAB, 6)
+                        .pattern("ddd")
+                        .define('d', Items.COARSE_DIRT)
+                        .unlockedBy(getHasName(Items.COARSE_DIRT), has(Items.COARSE_DIRT))
                         .save(output);
 
+                //armor
+                shaped(RecipeCategory.COMBAT, ModItems.REFINED_HELMET, 1)
+                        .pattern("rrr")
+                        .pattern("r r")
+                        .define('r', ModItems.Refined_Ingot)
+                        .unlockedBy(getHasName(ModItems.Refined_Ingot), has(ModItems.Refined_Ingot))
+                        .save(output);
+                shaped(RecipeCategory.COMBAT, ModItems.REFINED_CHESTPLATE, 1)
+                        .pattern("r r")
+                        .pattern("rrr")
+                        .pattern("rrr")
+                        .define('r', ModItems.Refined_Ingot)
+                        .unlockedBy(getHasName(ModItems.Refined_Ingot), has(ModItems.Refined_Ingot))
+                        .save(output);
+                shaped(RecipeCategory.COMBAT, ModItems.REFINED_LEGGINGS, 1)
+                        .pattern("rrr")
+                        .pattern("r r")
+                        .pattern("r r")
+                        .define('r', ModItems.Refined_Ingot)
+                        .unlockedBy(getHasName(ModItems.Refined_Ingot), has(ModItems.Refined_Ingot))
+                        .save(output);
+                shaped(RecipeCategory.COMBAT, ModItems.REFINED_BOOTS, 1)
+                        .pattern("r r")
+                        .pattern("r r")
+                        .define('r', ModItems.Refined_Ingot)
+                        .unlockedBy(getHasName(ModItems.Refined_Ingot), has(ModItems.Refined_Ingot))
+                        .save(output);
             }
         };
     }

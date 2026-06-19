@@ -16,10 +16,25 @@ repositories {
 		url = "https://maven.midnightdust.eu/releases"
 	}
 
+	//trinkets
+	maven {
+		name = "Nucleoid"
+		url = 'https://maven.nucleoid.xyz/releases'
+	}
+
+	//ladysnake
+	maven {
+		name = 'Ladysnake Mods'
+		url = 'https://maven.ladysnake.org/releases'
+	}
+
+	//maven {
+	//	url = "https://api.modrinth.com/maven"
+	//}
+
 	// Mod Menu
 	maven { url "https://maven.terraformersmc.com/releases/" }
 
-	repositories {
 		exclusiveContent {
 			forRepository {
 				maven {
@@ -29,7 +44,7 @@ repositories {
 			}
 			filter { includeGroupAndSubgroups('com.geckolib') }
 		}
-	}
+
 }
 
 fabricApi {
@@ -51,6 +66,11 @@ dependencies {
 	implementation include ("eu.midnightdust:midnightlib:1.9.2+26.1-fabric")
 
 	implementation "com.geckolib:geckolib-fabric-${minecraft_version}:${geckolibVersion}"
+	//implementation "maven.modrinth:detail-armor-bar-reconstructed:5.2.1+26.1-fabric"
+
+	implementation "eu.pb4:trinkets:${trinkets_version}"
+	runtimeOnly "eu.pb4:trinkets:${trinkets_version}"
+
 }
 
 processResources {

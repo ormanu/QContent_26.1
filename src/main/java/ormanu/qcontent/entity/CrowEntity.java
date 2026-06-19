@@ -49,7 +49,6 @@ public class CrowEntity extends TamableAnimal implements GeoEntity, FlyingAnimal
     private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
     private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
     private static final RawAnimation FLY  = RawAnimation.begin().thenLoop("fly");
-
     // Perching flag for goals + animation
     private static final EntityDataAccessor<Boolean> QCONTENT_PERCHING =
             SynchedEntityData.defineId(CrowEntity.class, EntityDataSerializers.BOOLEAN);
@@ -161,6 +160,7 @@ public class CrowEntity extends TamableAnimal implements GeoEntity, FlyingAnimal
     public void tick() {
         super.tick();
 
+        this.setCanPickUpLoot(true);
 
         if (!this.level().isClientSide() && qcontent$panicCawCooldown > 0) {
             qcontent$panicCawCooldown--;
@@ -272,7 +272,7 @@ public class CrowEntity extends TamableAnimal implements GeoEntity, FlyingAnimal
         if (!level.getBlockState(pos).isAir()) return false;
 
         BlockState below = level.getBlockState(pos.below());
-        boolean okGround = below.is(BlockTags.DIRT) || below.is(BlockTags.SAND) || below.is(BlockTags.LEAVES);
+        boolean okGround = below.is(BlockTags.DIRT) || below.is(BlockTags.SAND) || below.is(BlockTags.LEAVES) || below.is(BlockTags.GRASS_BLOCKS);
 
         return okGround && Mob.checkMobSpawnRules(type, level, reason, pos, random);
     }

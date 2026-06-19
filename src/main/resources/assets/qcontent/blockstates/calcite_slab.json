@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "qcontent:block/calcite_slab" },
+    "type=top":    { "model": "qcontent:block/calcite_slab_top" },
+    "type=double": { "model": "qcontent:block/calcite_slab_double" }
+  }
+}

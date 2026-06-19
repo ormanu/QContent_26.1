@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "d": "minecraft:diorite",
+    "w": "minecraft:white_dye"
+  },
+  "pattern": [
+    "dw",
+    "wd"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:calcite"
+  }
+}
