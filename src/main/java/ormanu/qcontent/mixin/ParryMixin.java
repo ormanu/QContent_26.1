@@ -8,7 +8,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,6 +21,8 @@ import ormanu.qcontent.sound.ModSounds;
 
 @Mixin(LivingEntity.class)
 public class ParryMixin {
+    @Shadow
+    private @Nullable DamageSource lastDamageSource;
     @Unique private boolean qcontent$didParry = false;
     @Unique private Entity qcontent$parryAttacker = null;
 
@@ -93,11 +97,11 @@ public class ParryMixin {
             // reduce your knockback (horizontal)
             Vec3 v = player.getDeltaMovement();
             player.setDeltaMovement(v.x * 0.25, v.y, v.z * 0.25);
-            player.hurtMarked = true;
 
             // knock back attacker slightly
             if (qcontent$parryAttacker instanceof LivingEntity living) {
-                living.knockback(0.9F, player.getX() - living.getX(), player.getZ() - living.getZ());
+                assert lastDamageSource != null;
+                living.knockback(0.9F, player.getX() - living.getX(), player.getZ() - living.getZ(), lastDamageSource, 2);
             }
         }
 

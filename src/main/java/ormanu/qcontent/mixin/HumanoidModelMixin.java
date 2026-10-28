@@ -39,13 +39,13 @@ public class HumanoidModelMixin<T extends HumanoidRenderState> {
             return;
         }
 
-        if (state.attackTime > 0.0F) {
+        if (state.ticksUsingItem > 0.0F) {
             // The main arm will already be swinging (vanilla).
             // We make the support arm "follow" so it doesn't float or snap.
             if (rightHanded) {
-                qcontent$followSwingSupportArm(false, state.attackTime); // lock/follow LEFT arm
+                qcontent$followSwingSupportArm(false, state.ticksUsingItem); // lock/follow LEFT arm
             } else {
-                qcontent$followSwingSupportArm(true, state.attackTime);  // lock/follow RIGHT arm
+                qcontent$followSwingSupportArm(true, state.ticksUsingItem);  // lock/follow RIGHT arm
             }
             return;
         }

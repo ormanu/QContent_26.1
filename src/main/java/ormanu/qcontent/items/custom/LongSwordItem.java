@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -26,6 +28,7 @@ public class LongSwordItem extends Item {
     public LongSwordItem(Properties properties) {
         super(properties);
     }
+    private @Nullable DamageSource lastDamageSource;
 
     private void spawnCleaveParticles(Level level, Player player) {
         if (!(level instanceof net.minecraft.server.level.ServerLevel serverLevel)) return;
@@ -127,7 +130,8 @@ public class LongSwordItem extends Item {
             // only hit targets in front of player
             if (dot > 0.4 && player.distanceTo(target) <= range) {
                 target.hurt(player.damageSources().playerAttack(player), baseDamage + bonusDamage);
-                target.knockback(0.8F, player.getX() - target.getX(), player.getZ() - target.getZ());
+                assert lastDamageSource != null;
+                target.knockback(0.8F, player.getX() - target.getX(), player.getZ() - target.getZ(), lastDamageSource,2);
             }
         }
     }

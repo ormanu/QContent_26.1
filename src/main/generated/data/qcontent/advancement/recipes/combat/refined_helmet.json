@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:refined_helmet"
+        "recipes": "qcontent:refined_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

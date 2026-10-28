@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:calcite_slab"
+        "recipes": "qcontent:calcite_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

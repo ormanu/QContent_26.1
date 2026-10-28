@@ -31,11 +31,6 @@ public class TeddyBearBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    protected @Nullable MapCodec<? extends HorizontalDirectionalBlock> codec() {
-        return null;
-    }
-
-    @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         // faces the player (same as furnace)
         return this.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, ctx.getHorizontalDirection().getOpposite());

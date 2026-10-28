@@ -2,14 +2,17 @@ package ormanu.qcontent.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
 import ormanu.qcontent.blocks.ModBlocks;
 import ormanu.qcontent.items.ModItems;
 
@@ -19,9 +22,10 @@ public class QRecipeProvider extends FabricRecipeProvider {
     public QRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
+
     @Override
-    protected RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
-        return new RecipeProvider(registryLookup, exporter) {
+    protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+        return new RecipeProvider(recipes, advancements) {
             @Override
             public void buildRecipes() {
                 HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
@@ -90,7 +94,7 @@ public class QRecipeProvider extends FabricRecipeProvider {
                 shaped(RecipeCategory.DECORATIONS, ModBlocks.TeddyBear, 1)
                         .pattern(" b ")
                         .pattern(" sw")
-                        .define('b', Items.BROWN_DYE)
+                        .define('b', Items.DYE.brown())
                         .define('s', Items.STRING)
                         .define('w', ItemTags.WOOL)
                         .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
@@ -119,7 +123,7 @@ public class QRecipeProvider extends FabricRecipeProvider {
                         .pattern("dw")
                         .pattern("wd")
                         .define('d', Items.DIORITE)
-                        .define('w', Items.WHITE_DYE)
+                        .define('w', Items.DYE.white())
                         .unlockedBy(getHasName(Items.DIORITE), has(Items.DIORITE ))
                         .save(output);
                 shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DIRT_SLAB, 6)

@@ -45,7 +45,7 @@ public class ModBlocks {
     public static final Block COARSE_DIRT_SLAB = register(
             "coarse_dirt_slab",
             properties -> new SlabBlock(
-                    properties.strength(0.75f).requiresCorrectToolForDrops()),
+                    properties.strength(0.35f).sound(SoundType.ROOTED_DIRT)),
             BlockBehaviour.Properties.of(),
             true
     );
@@ -53,7 +53,7 @@ public class ModBlocks {
     public static final Block DIRT_SLAB = register(
             "dirt_slab",
             properties -> new SlabBlock(
-                    properties.strength(0.75f).requiresCorrectToolForDrops()),
+                    properties.strength(0.35f).sound(SoundType.ROOTED_DIRT)),
             BlockBehaviour.Properties.of(),
             true
     );

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:refined_ingot"
+        "recipes": "qcontent:refined_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

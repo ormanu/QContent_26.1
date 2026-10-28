@@ -18,7 +18,7 @@ public class ModSpawns {
                 ),
                 MobCategory.CREATURE,
                 ModEntityTypes.CROW,
-                12, 2, 3
+                35, 1, 3
         );
 
         SpawnPlacements.register(

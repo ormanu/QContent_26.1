@@ -8,6 +8,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -74,12 +75,6 @@ public class TrainingDummyEntity extends PathfinderMob {
         }
     }
 
-    // Don’t get launched by hits (still pushable by collision)
-    @Override
-    public void knockback(double strength, double x, double z) {
-        // no-op
-    }
-
     // Don’t let water/lava currents slide it around (feels more “stand-like”)
     @Override
     public boolean isPushedByFluid() {
@@ -95,7 +90,7 @@ public class TrainingDummyEntity extends PathfinderMob {
 
         if (!this.level().isClientSide()) {
             ItemStack stack = ModItems.TRAINING_DUMMY_SPAWN_EGG.getDefaultInstance();
-            if (!player.addItem(stack)) player.drop(stack, false);
+            if (!player.addItem(stack)) player.drop(stack, false, Prediction.PREDICTED);
             this.discard();
         }
 

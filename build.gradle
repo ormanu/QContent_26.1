@@ -62,14 +62,12 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-	implementation("com.terraformersmc:modmenu:18.0.0-alpha.8")
-	implementation include ("eu.midnightdust:midnightlib:1.9.2+26.1-fabric")
+	implementation("com.terraformersmc:modmenu:21.0.0")
+	implementation include ("eu.midnightdust:midnightlib:1.9.3+26.3-fabric")
 
 	implementation "com.geckolib:geckolib-fabric-${minecraft_version}:${geckolibVersion}"
-	//implementation "maven.modrinth:detail-armor-bar-reconstructed:5.2.1+26.1-fabric"
 
 	implementation "eu.pb4:trinkets:${trinkets_version}"
-	runtimeOnly "eu.pb4:trinkets:${trinkets_version}"
 
 }
 

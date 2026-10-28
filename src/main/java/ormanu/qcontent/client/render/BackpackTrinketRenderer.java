@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import org.joml.Matrix4fc;
 import ormanu.qcontent.items.custom.BackpackItem;
 
 public class BackpackTrinketRenderer implements TrinketRenderer {
@@ -40,15 +41,14 @@ public class BackpackTrinketRenderer implements TrinketRenderer {
 
             // ===== HIP POUCH - Lower belt, under arm, slightly behind =====
             poseStack.translate(0.25F, 0.7F, 0.15F);
-            poseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(-20.0F));
+            poseStack.last().pose().rotate(Axis.XP.rotationDegrees(180.0F));
+            poseStack.last().pose().rotate(Axis.YP.rotationDegrees(-20.0F));
             poseStack.scale(0.9F, 0.9F, 0.9F);
 
 
         // New item rendering path
         ItemModelResolver resolver = Minecraft.getInstance().getItemModelResolver();
 
-        // Depending on mappings/version, IntelliJ may suggest a slightly different overload here.
         resolver.updateForNonLiving(
                 this.itemRenderState,
                 stack,
@@ -56,7 +56,6 @@ public class BackpackTrinketRenderer implements TrinketRenderer {
                 Minecraft.getInstance().player
         );
 
-        // Depending on mappings/version, IntelliJ may suggest submit(...) or render(...)
         this.itemRenderState.submit(
                 poseStack,
                 submitNodeCollector,

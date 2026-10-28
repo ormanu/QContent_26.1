@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:refined_leggings"
+        "recipes": "qcontent:refined_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:teddybear"
+        "recipes": "qcontent:teddybear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

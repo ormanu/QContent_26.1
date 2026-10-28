@@ -83,6 +83,5 @@ public class PlayerScythePullMixin {
                 vel.y + lift,
                 vel.z * damp + pull.z
         );
-        living.hurtMarked = true;
     }
 }

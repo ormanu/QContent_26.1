@@ -54,7 +54,11 @@ public abstract class LivingEntityAirAccelerationMixin extends net.minecraft.wor
         }
 
         this.setDeltaMovement(newVelocity);
-        this.hurtMarked = true;
+        if ((Object) this instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            serverPlayer.connection.send(
+                    new net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket(serverPlayer)
+            );
+        }
 
         //System.out.println("AIR ACCEL ACTIVE");
     }

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "h": "minecraft:hay_block",
     "l": "#minecraft:wooden_slabs",

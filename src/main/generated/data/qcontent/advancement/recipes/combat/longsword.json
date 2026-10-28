@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:longsword"
+        "recipes": "qcontent:longsword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

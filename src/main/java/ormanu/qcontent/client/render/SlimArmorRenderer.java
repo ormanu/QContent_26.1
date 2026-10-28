@@ -222,8 +222,7 @@ public class SlimArmorRenderer implements ArmorRenderer {
                 OverlayTexture.NO_OVERLAY,
                 0xFFFFFFFF,
                 null,
-                0x00000000,
-                null
+                0x00000000
         );
     }
 }

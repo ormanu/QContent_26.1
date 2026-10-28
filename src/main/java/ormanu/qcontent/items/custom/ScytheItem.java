@@ -4,7 +4,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
@@ -83,11 +82,6 @@ public class ScytheItem extends Item {
         if (resultState == null) {
             return InteractionResult.PASS;
         }
-
-        // Play sound
-        level.playSound(player, pos,
-                isCoarseDirt ? SoundEvents.GRAVEL_BREAK : SoundEvents.HOE_TILL,
-                SoundSource.BLOCKS, 1.0F, 1.0F);
 
         if (!level.isClientSide()) {
             level.setBlock(pos, resultState, 11);

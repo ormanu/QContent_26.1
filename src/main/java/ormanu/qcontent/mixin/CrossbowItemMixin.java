@@ -1,6 +1,6 @@
 package ormanu.qcontent.mixin;
 
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -28,7 +28,7 @@ public class CrossbowItemMixin {
     ) {
         if (!(shooter instanceof Player player)) return;
 
-        if (projectile.getType() == EntityType.FIREWORK_ROCKET) {
+        if (projectile.getType() == EntityTypes.FIREWORK_ROCKET) {
             Vec3 look = player.getLookAngle().normalize();
 
             double recoilPower = ormanu.qcontent.config.QConfig.fireworkRecoilPower;
@@ -41,7 +41,11 @@ public class CrossbowItemMixin {
             );
 
             player.setDeltaMovement(player.getDeltaMovement().add(recoilBoost));
-            player.hurtMarked = true;
+            if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                serverPlayer.connection.send(
+                        new net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket(serverPlayer)
+                );
+            }
 
             AirBoostManager.setBoostUntilGround(player.getUUID());
             //System.out.println("SET AIR BOOST FOR " + player.getName().getString());

@@ -28,7 +28,6 @@ import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -43,7 +42,7 @@ import ormanu.qcontent.entity.goal.PerchGoal;
 import ormanu.qcontent.entity.goal.ScavengeGoal;
 import ormanu.qcontent.sound.ModSounds;
 
-public class CrowEntity extends TamableAnimal implements GeoEntity, FlyingAnimal {
+public class CrowEntity extends TamableAnimal implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
@@ -149,11 +148,6 @@ public class CrowEntity extends TamableAnimal implements GeoEntity, FlyingAnimal
     @Override
     protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {
         // no fall damage
-    }
-
-    @Override
-    public boolean isFlying() {
-        return !this.onGround();
     }
 
     @Override

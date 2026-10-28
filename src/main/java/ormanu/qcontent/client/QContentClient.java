@@ -8,19 +8,10 @@ import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.color.block.BlockTintSource;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.GrassColor;
-import net.minecraft.world.level.block.state.BlockState;
-import org.lwjgl.glfw.GLFW;
 import ormanu.qcontent.QContent;
-import ormanu.qcontent.blocks.ModBlocks;
 import ormanu.qcontent.client.particle.SculkSweepParticle;
 import ormanu.qcontent.client.particle.ScytheSweepParticle;
 import ormanu.qcontent.client.render.BackpackTrinketRenderer;
@@ -34,22 +25,22 @@ import ormanu.qcontent.network.OpenBackpackPayload;
 import ormanu.qcontent.network.ToggleHoodPayload;
 import ormanu.qcontent.network.ToggleMagnetPayload;
 
-import java.util.List;
-
 public class QContentClient implements ClientModInitializer {
 
     public static KeyMapping toggleHoodKey;
     public static KeyMapping toggleMagnetKey;
     public static KeyMapping openBackpackKey;
 
-    KeyMapping.Category CATEGORY = KeyMapping.Category.register(
-            Identifier.fromNamespaceAndPath(QContent.MOD_ID, "qcontent")
-    );
-
-
+    // 1. Leave this uninitialized at the class level so it doesn't run during DataGen
+    public static KeyMapping.Category CATEGORY;
 
     @Override
     public void onInitializeClient() {
+        // 2. Safely initialize the category only when the client environment spins up
+        CATEGORY = KeyMapping.Category.register(
+                Identifier.fromNamespaceAndPath(QContent.MOD_ID, "qcontent")
+        );
+
         ParticleProviderRegistry.getInstance().register(QContent.SCULK_SWEEP, SculkSweepParticle.Provider::new);
         ParticleProviderRegistry.getInstance().register(QContent.SCYTHE_SWEEP, ScytheSweepParticle.Provider::new);
 
@@ -68,23 +59,24 @@ public class QContentClient implements ClientModInitializer {
                 ModItems.REFINED_BOOTS
         );
 
+        // 3. The rest of your keybind registrations will now safely use the initialized CATEGORY
         toggleHoodKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.qcontent.toggle_hood",
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_H ,
-                this.CATEGORY// This puts it in a nice category in the controls menu
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_H,
+                CATEGORY
         ));
         toggleMagnetKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.qcontent.toggle_magnet",
                 InputConstants.Type.MOUSE,
-                GLFW.GLFW_MOUSE_BUTTON_4 ,
-                this.CATEGORY// This puts it in a nice category in the controls menu
+                InputConstants.MOUSE_BUTTON_4,
+                CATEGORY
         ));
         openBackpackKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.qcontent.open_backpack",
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_B ,
-                this.CATEGORY// This puts it in a nice category in the controls menu
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_B,
+                CATEGORY
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:coarse_dirt_slab"
+        "recipes": "qcontent:coarse_dirt_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

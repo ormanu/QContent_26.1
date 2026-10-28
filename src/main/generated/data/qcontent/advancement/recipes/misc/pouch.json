@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:pouch"
+        "recipes": "qcontent:pouch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

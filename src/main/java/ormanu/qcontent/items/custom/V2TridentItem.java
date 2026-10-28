@@ -91,7 +91,6 @@ public class V2TridentItem extends TridentItem {
         z *= power / len;
 
         player.push(x, y, z);
-        player.hurtMarked = true;
 
         // 26.1 signature: (durationTicks, damage, itemStack)
         player.startAutoSpinAttack(20, 8.0F, stack);

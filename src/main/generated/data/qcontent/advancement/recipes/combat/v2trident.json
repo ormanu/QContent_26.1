@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "qcontent:v2trident"
+        "recipes": "qcontent:v2trident"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

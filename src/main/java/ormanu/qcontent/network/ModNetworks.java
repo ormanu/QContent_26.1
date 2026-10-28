@@ -11,7 +11,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.Tuple;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,8 +22,6 @@ import ormanu.qcontent.items.custom.MagnetItem;
 import ormanu.qcontent.items.custom.RefinedHelmetItem;
 import ormanu.qcontent.screen.BackpackMenu;
 import ormanu.qcontent.screen.BackpackTrinketMenu;
-
-import java.util.Optional;
 
 public class ModNetworks {
 
